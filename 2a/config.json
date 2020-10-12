@@ -1,0 +1,12 @@
+{
+  "app_name": "XVBA",
+  "description": "",
+  "author": "",
+  "email": "",
+  "create_ate": "",
+  "excel_file": "MMI19030-2a.xlsm",
+  "vba_folder": "vba-files",
+  "logs": "on",
+  "xvba_packages": {},
+  "xvba_dev_packages": {}
+}
