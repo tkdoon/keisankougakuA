@@ -1,16 +1,16 @@
 Attribute VB_Name = "Module1"
 Sub circle_Click()
     Dim A_Nodes(), A22(), f(), k() As Variant
-    Nodes = Cells(1, 2)
-    E = Cells(2, 2)
-    H0 = Cells(3, 2)
-    H1 = Cells(4, 2)
-    b = Cells(5, 2)
-    L = Cells(6, 2)
-    P = Cells(7, 2)
+    Nodes = cells(1, 2)
+    E = cells(2, 2)
+    H0 = cells(3, 2)
+    H1 = cells(4, 2)
+    b = cells(5, 2)
+    L = cells(6, 2)
+    P = cells(7, 2)
     ReDim f(Nodes)
     For i = 1 To Nodes
-        f(i) = Cells(i + 1, 6)
+        f(i) = cells(i + 1, 6)
     Next i
     l_ = L / (Nodes - 1)
 
@@ -24,8 +24,6 @@ Sub circle_Click()
     ReDim k(Nodes - 1)
     For i = 1 To Nodes - 1
         k(i) = E * b / l_ / 2 * (2 * H0 - 2 * i * l_ / L * (H0 - H1) + l_ / L * (H0 - H1))
-        Debug.Print (k(i))
-        
     Next i
     ReDim A22(Nodes - 1, 2, 2)
     For i = 1 To Nodes - 1
@@ -40,14 +38,14 @@ Sub circle_Click()
         A_Nodes(i, i + 1) = A_Nodes(i, i + 1) + A22(i, 1, 2)
         A_Nodes(i + 1, i + 1) = A_Nodes(i + 1, i + 1) + A22(i, 2, 2)
     Next i
-    Call print_array(A_Nodes, "")
+    key = A_Nodes(1, 2)
     A_small_size = ShrinkArray(A_Nodes, 1, 1)
-    Call print_array(A_small_size, "")
     hakidasi_matrix = hakidasi(A_small_size, Nodes - 1, Nodes)
     u = answer_of_hakidasi(hakidasi_matrix, Nodes - 1, Nodes)
     For i = 1 To Nodes - 1
-        Cells(i + 2, 7) = u(i)
+        cells(i + 2, 7) = u(i)
     Next i
+    cells(2, 6) = key * u(1)
 End Sub
 Function hakidasi(AF, row_size, col_size)
 'colsize=rowsize+1
