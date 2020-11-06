@@ -1,60 +1,83 @@
 Attribute VB_Name = "Module1"
-Sub circle_Click()
-    Dim A_Nodes(), A22(), f(), k() As Variant
-    Nodes = cells(1, 2)
-    E = cells(2, 2)
-    H0 = cells(3, 2)
-    H1 = cells(4, 2)
-    b = cells(5, 2)
-    L = cells(6, 2)
-    P = cells(7, 2)
-    ReDim f(Nodes)
-    For i = 1 To Nodes
-        f(i) = cells(i + 1, 8)
+Sub circle1_Click()
+    Dim A_Nodes(), A44(), f(), Iz() As Variant
+    Nodes = 6
+    E = Cells(1, 2)
+    H0 = Cells(2, 2)
+    H1 = Cells(3, 2)
+    b = Cells(4, 2)
+    L = Cells(5, 2)
+    ReDim f(Nodes * 2)
+    For i = 1 To Nodes * 2
+        f(i) = Cells(i + 1, 10)
     Next i
     l_ = L / (Nodes - 1)
-
-    ReDim A_Nodes(Nodes, Nodes + 1)
-    For i = 1 To Nodes
-        For j = 1 To Nodes
+    ReDim A_Nodes(Nodes * 2, Nodes * 2 + 1)
+    For i = 1 To Nodes * 2
+        For j = 1 To Nodes * 2
             A_Nodes(i, j) = 0
         Next j
-        A_Nodes(i, Nodes + 1) = f(i)
+        A_Nodes(i, Nodes * 2 + 1) = f(i)
     Next i
-    ReDim k(Nodes - 1)
+    ReDim Iz(Nodes - 1)
     For i = 1 To Nodes - 1
-        k(i) = E * b / l_ / 2 * (2 * H0 - 2 * i * l_ / L * (H0 - H1) + l_ / L * (H0 - H1))
+        Iz(i) = b * (H0 + (1 - 2 * i) * (H0 - H1) / 10) ^ 3 / 12
     Next i
-    ReDim A22(Nodes - 1, 2, 2)
+    ReDim A44(Nodes - 1, 4, 4)
     For i = 1 To Nodes - 1
-        A22(i, 1, 1) = k(i)
-        A22(i, 2, 1) = -k(i)
-        A22(i, 1, 2) = -k(i)
-        A22(i, 2, 2) = k(i)
+        k = E * Iz(i) / l_ ^ 3
+        A44(i, 1, 1) = 12 * k
+        A44(i, 1, 2) = 6 * k * l_
+        A44(i, 1, 3) = -12 * k
+        A44(i, 1, 4) = 6 * k * l_
+        A44(i, 2, 1) = 6 * k * l_
+        A44(i, 2, 2) = 4 * k * l_ ^ 2
+        A44(i, 2, 3) = -6 * k * l_
+        A44(i, 2, 4) = 2 * k * l_ ^ 2
+        A44(i, 3, 1) = -12 * k
+        A44(i, 3, 2) = -6 * k * l_
+        A44(i, 3, 3) = 12 * k
+        A44(i, 3, 4) = -6 * k * l_
+        A44(i, 4, 1) = 6 * k * l_
+        A44(i, 4, 2) = 2 * k * l_ ^ 2
+        A44(i, 4, 3) = -6 * k * l_
+        A44(i, 4, 4) = 4 * k * l_ ^ 2
     Next i
-    For i = 1 To Nodes - 1
-        A_Nodes(i, i) = A_Nodes(i, i) + A22(i, 1, 1)
-        A_Nodes(i + 1, i) = A_Nodes(i + 1, i) + A22(i, 2, 1)
-        A_Nodes(i, i + 1) = A_Nodes(i, i + 1) + A22(i, 1, 2)
-        A_Nodes(i + 1, i + 1) = A_Nodes(i + 1, i + 1) + A22(i, 2, 2)
+
+    For i = 1 To Nodes * 2 - 3 Step 2
+        For j = 0 To 3
+            For k = 0 To 3
+                A_Nodes(i + j, i + k) = A_Nodes(i + j, i + k) + A44((i + 1) / 2, j + 1, k + 1)
+            Next k
+        Next j
     Next i
-    key = A_Nodes(1, 2)
-    A_small_size = ShrinkArray(A_Nodes, 1, 1)
-    hakidasi_matrix = hakidasi(A_small_size, Nodes - 1, Nodes)
-    u = answer_of_hakidasi(hakidasi_matrix, Nodes - 1, Nodes)
-    For i = 1 To Nodes - 1
-        cells(i + 2, 9) = u(i)
+
+    key1 = A_Nodes(1, 3)
+    key2 = A_Nodes(1, 4)
+    key3 = A_Nodes(2, 3)
+    key4 = A_Nodes(2, 4)
+    A_small_size = ShrinkArray(ShrinkArray(A_Nodes, 1, 1), 1, 1)
+    hakidasi_matrix = hakidasi(A_small_size, 2 * (Nodes - 1), 2 * Nodes - 1)
+    u = answer_of_hakidasi(hakidasi_matrix, 2 * (Nodes - 1), 2 * Nodes - 1)
+    For i = 1 To 2 * (Nodes - 1)
+        Cells(i + 3, 11) = u(i)
     Next i
-    cells(2, 6) = key * u(1)
+    Cells(2, 11) = 0
+    Cells(3, 11) = 0
+    Cells(2, 12) = key1 * u(1) + key2 * u(2)
+    Cells(3, 12) = key3 * u(1) + key4 * u(2)
+    For i = 1 To 2 * Nodes - 2
+        Cells(i + 3, 12) = f(i + 2)
+    Next i
 End Sub
 Function hakidasi(AF, row_size, col_size)
 'colsize=rowsize+1
 
     For k = 1 To row_size
         '(i,i)???
-        key = AF(k, k)
+        Key = AF(k, k)
         For i = k To col_size
-            AF(k, i) = AF(k, i) / key
+            AF(k, i) = AF(k, i) / Key
         Next i
         '1???0?
         For i = k + 1 To row_size
@@ -64,7 +87,7 @@ Function hakidasi(AF, row_size, col_size)
             Next j
         Next i
     Next k
-
+    
     '???0?
     For i = 1 To row_size - 1
         For k = i + 1 To row_size
@@ -74,7 +97,7 @@ Function hakidasi(AF, row_size, col_size)
             Next j
         Next k
     Next i
-    Call print_array(AF, "aaa")
+
 
     hakidasi = AF
 End Function
@@ -126,4 +149,3 @@ Sub print_array(arr, Optional msg As String)
     Next i
     Debug.Print ("--- " & Now & " " & msg & " ---")
 End Sub
-

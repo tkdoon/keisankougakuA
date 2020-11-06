@@ -1,0 +1,43 @@
+2020-11-03 22:34:39 info: Start Import VBA files
+2020-11-03 22:34:39 debug: Delete temp Files Success!
+2020-11-03 22:34:39 debug: Command Status: Command Run
+2020-11-03 22:34:39 debug: Finish Exported file from Vscode to Excel
+2020-11-03 22:34:42 debug: Start Move VBA files from tmp to Workspace
+2020-11-03 22:34:42 debug: Finish Move VBA files from tmp to Workspace
+2020-11-03 22:35:04 info: Start Import VBA files
+2020-11-03 22:35:04 debug: Delete temp Files Success!
+2020-11-03 22:35:04 debug: Command Status: Command Run
+2020-11-03 22:35:04 debug: Finish Exported file from Vscode to Excel
+2020-11-03 22:35:07 debug: Start Move VBA files from tmp to Workspace
+2020-11-03 22:35:07 debug: Finish Move VBA files from tmp to Workspace
+2020-11-03 22:35:30 info: Start Import VBA files
+2020-11-03 22:35:30 debug: Delete temp Files Success!
+2020-11-03 22:35:30 debug: Command Status: Command Run
+2020-11-03 22:35:30 debug: Finish Exported file from Vscode to Excel
+2020-11-03 22:35:34 debug: Start Move VBA files from tmp to Workspace
+2020-11-03 22:35:34 debug: Finish Move VBA files from tmp to Workspace
+2020-11-03 22:36:09 info: Start Import VBA files
+2020-11-03 22:36:09 debug: Delete temp Files Success!
+2020-11-03 22:36:09 debug: Command Status: Command Run
+2020-11-03 22:36:09 debug: Finish Exported file from Vscode to Excel
+2020-11-03 22:36:12 debug: Start Move VBA files from tmp to Workspace
+2020-11-03 22:36:12 debug: Finish Move VBA files from tmp to Workspace
+2020-11-03 22:37:09 info: Start Import VBA files
+2020-11-03 22:37:09 debug: Delete temp Files Success!
+2020-11-03 22:37:09 debug: Command Status: Command Run
+2020-11-03 22:37:09 debug: Finish Exported file from Vscode to Excel
+2020-11-03 22:37:12 debug: Start Move VBA files from tmp to Workspace
+2020-11-03 22:37:12 debug: Finish Move VBA files from tmp to Workspace
+2020-11-03 22:37:42 info: Start Import VBA files
+2020-11-03 22:37:42 debug: Delete temp Files Success!
+2020-11-03 22:37:42 debug: Command Status: Command Run
+2020-11-03 22:37:42 debug: Finish Exported file from Vscode to Excel
+2020-11-03 22:37:46 debug: Start Move VBA files from tmp to Workspace
+2020-11-03 22:37:46 debug: Finish Move VBA files from tmp to Workspace
+2020-11-03 22:38:05 info: Start Import VBA files
+2020-11-03 22:38:05 debug: Delete temp Files Success!
+2020-11-03 22:38:05 debug: Command Status: Command Run
+2020-11-03 22:38:05 debug: Finish Exported file from Vscode to Excel
+2020-11-03 22:38:09 debug: Start Move VBA files from tmp to Workspace
+2020-11-03 22:38:09 debug: Move vba file Module1.bas namespace: default
+2020-11-03 22:38:09 debug: Finish Move VBA files from tmp to Workspace
