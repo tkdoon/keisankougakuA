@@ -1,0 +1,12 @@
+{
+    "app_name": "XVBA",
+    "description": "",
+    "author": "",
+    "email": "",
+    "create_ate": "Tue Nov 10 2020 17:08:46 GMT+0900 (日本標準時)",
+    "excel_file": "MMI19030-5",
+    "vba_folder": "vba-files",
+    "logs": "on",
+    "xvba_packages": {},
+    "xvba_dev_packages": {}
+}
