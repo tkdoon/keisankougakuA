@@ -39,3 +39,13 @@
 2020-11-17 00:23:45 debug: Start Move VBA files from tmp to Workspace
 2020-11-17 00:23:45 debug: Move vba file Module1.bas namespace: default
 2020-11-17 00:23:45 debug: Finish Move VBA files from tmp to Workspace
+2020-11-22 15:21:39 debug: Finish Exported file from Vscode to Excel
+2020-11-22 15:21:53 debug: Finish Exported file from Vscode to Excel
+2020-11-22 15:21:53 error: exec error: Error: Command failed:  cmd /c start "" /b "c:\Users\tyasu\.vscode\extensions\local-smart.excel-live-server-3.0.4\excel-live-server\autoload.xlsm"
+�v���Z�X�̓t�@�C���ɃA�N�Z�X�ł��܂���B�ʂ̃v���Z�X���g�p���ł��B
+
+2020-11-22 15:22:16 debug: Finish Exported file from Vscode to Excel
+2020-11-22 15:22:16 error: exec error: Error: Command failed:  cmd /c start "" /b "c:\Users\tyasu\.vscode\extensions\local-smart.excel-live-server-3.0.4\excel-live-server\autoload.xlsm"
+�v���Z�X�̓t�@�C���ɃA�N�Z�X�ł��܂���B�ʂ̃v���Z�X���g�p���ł��B
+
+2020-11-22 15:22:50 debug: Finish Exported file from Vscode to Excel
